@@ -1,4 +1,4 @@
-# Pierces Staging Tester TypeScript API Library
+# Pierces Staging Tester TypeScript API Library (MERGE CONFLUCT HERE)
 
 [![NPM version](<https://img.shields.io/npm/v/pierces-staging-tester.svg?label=npm%20(stable)>)](https://npmjs.org/package/pierces-staging-tester) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/pierces-staging-tester)
 
