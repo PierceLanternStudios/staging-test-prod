@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import type { FinalRequestOptions } from './request-options';
-import { type PiercesStagingTester } from '../client';
+import { type PiercesStagingTesterMcHere } from '../client';
 import { formatRequestDetails, loggerFor } from './utils/log';
 
 export type APIResponseProps = {
@@ -14,7 +14,7 @@ export type APIResponseProps = {
 };
 
 export async function defaultParseResponse<T>(
-  client: PiercesStagingTester,
+  client: PiercesStagingTesterMcHere,
   props: APIResponseProps,
 ): Promise<T> {
   const { response, requestLogID, retryOfRequestLogID, startTime } = props;

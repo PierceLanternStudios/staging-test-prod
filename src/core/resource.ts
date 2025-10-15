@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { PiercesStagingTester } from '../client';
+import type { PiercesStagingTesterMcHere } from '../client';
 
 export abstract class APIResource {
-  protected _client: PiercesStagingTester;
+  protected _client: PiercesStagingTesterMcHere;
 
-  constructor(client: PiercesStagingTester) {
+  constructor(client: PiercesStagingTesterMcHere) {
     this._client = client;
   }
 }

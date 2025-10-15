@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { PiercesStagingTester } from 'pierces-staging-tester';
+import { PiercesStagingTesterMcHere } from 'pierces-staging-tester';
 
-const { stringifyQuery } = PiercesStagingTester.prototype as any;
+const { stringifyQuery } = PiercesStagingTesterMcHere.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [
