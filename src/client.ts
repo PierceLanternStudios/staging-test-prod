@@ -63,7 +63,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['PIERCES_STAGING_TESTER_BASE_URL'].
+   * Defaults to process.env['PIERCES_STAGING_TESTER_MC_HERE_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -117,7 +117,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['PIERCES_STAGING_TESTER_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['PIERCES_STAGING_TESTER_MC_HERE_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -130,9 +130,9 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Pierces Staging Tester API.
+ * API Client for interfacing with the Pierces Staging Tester Mc Here API.
  */
-export class PiercesStagingTester {
+export class PiercesStagingTesterMcHere {
   apiKey: string;
 
   baseURL: string;
@@ -148,10 +148,10 @@ export class PiercesStagingTester {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Pierces Staging Tester API.
+   * API Client for interfacing with the Pierces Staging Tester Mc Here API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['PETSTORE_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['PIERCES_STAGING_TESTER_BASE_URL'] ?? https://petstore3.swagger.io/api/v3] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['PIERCES_STAGING_TESTER_MC_HERE_BASE_URL'] ?? https://petstore3.swagger.io/api/v3] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -160,13 +160,13 @@ export class PiercesStagingTester {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('PIERCES_STAGING_TESTER_BASE_URL'),
+    baseURL = readEnv('PIERCES_STAGING_TESTER_MC_HERE_BASE_URL'),
     apiKey = readEnv('PETSTORE_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.PiercesStagingTesterError(
-        "The PETSTORE_API_KEY environment variable is missing or empty; either provide it, or instantiate the PiercesStagingTester client with an apiKey option, like new PiercesStagingTester({ apiKey: 'My API Key' }).",
+      throw new Errors.PiercesStagingTesterMcHereError(
+        "The PETSTORE_API_KEY environment variable is missing or empty; either provide it, or instantiate the PiercesStagingTesterMcHere client with an apiKey option, like new PiercesStagingTesterMcHere({ apiKey: 'My API Key' }).",
       );
     }
 
@@ -177,7 +177,7 @@ export class PiercesStagingTester {
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? PiercesStagingTester.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? PiercesStagingTesterMcHere.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
@@ -185,8 +185,8 @@ export class PiercesStagingTester {
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
       parseLogLevel(
-        readEnv('PIERCES_STAGING_TESTER_LOG'),
-        "process.env['PIERCES_STAGING_TESTER_LOG']",
+        readEnv('PIERCES_STAGING_TESTER_MC_HERE_LOG'),
+        "process.env['PIERCES_STAGING_TESTER_MC_HERE_LOG']",
         this,
       ) ??
       defaultLogLevel;
@@ -707,10 +707,10 @@ export class PiercesStagingTester {
     }
   }
 
-  static PiercesStagingTester = this;
+  static PiercesStagingTesterMcHere = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static PiercesStagingTesterError = Errors.PiercesStagingTesterError;
+  static PiercesStagingTesterMcHereError = Errors.PiercesStagingTesterMcHereError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -731,11 +731,11 @@ export class PiercesStagingTester {
   users: API.Users = new API.Users(this);
 }
 
-PiercesStagingTester.Pets = Pets;
-PiercesStagingTester.Store = Store;
-PiercesStagingTester.Users = Users;
+PiercesStagingTesterMcHere.Pets = Pets;
+PiercesStagingTesterMcHere.Store = Store;
+PiercesStagingTesterMcHere.Users = Users;
 
-export declare namespace PiercesStagingTester {
+export declare namespace PiercesStagingTesterMcHere {
   export type RequestOptions = Opts.RequestOptions;
 
   export {

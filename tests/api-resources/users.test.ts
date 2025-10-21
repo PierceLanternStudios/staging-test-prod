@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PiercesStagingTester from 'pierces-staging-tester';
+import PiercesStagingTesterMcHere from 'pierces-staging-tester';
 
-const client = new PiercesStagingTester({
+const client = new PiercesStagingTesterMcHere({
   apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -37,7 +37,7 @@ describe('resource users', () => {
         },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(PiercesStagingTester.NotFoundError);
+    ).rejects.toThrow(PiercesStagingTesterMcHere.NotFoundError);
   });
 
   // Prism tests are disabled
@@ -82,7 +82,7 @@ describe('resource users', () => {
         },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(PiercesStagingTester.NotFoundError);
+    ).rejects.toThrow(PiercesStagingTesterMcHere.NotFoundError);
   });
 
   // Prism tests are disabled
@@ -130,7 +130,7 @@ describe('resource users', () => {
         },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(PiercesStagingTester.NotFoundError);
+    ).rejects.toThrow(PiercesStagingTesterMcHere.NotFoundError);
   });
 
   // Prism tests are disabled
@@ -153,7 +153,7 @@ describe('resource users', () => {
         { password: 'password', username: 'username' },
         { path: '/_stainless_unknown_path' },
       ),
-    ).rejects.toThrow(PiercesStagingTester.NotFoundError);
+    ).rejects.toThrow(PiercesStagingTesterMcHere.NotFoundError);
   });
 
   // Prism tests are disabled
