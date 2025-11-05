@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks-staging/pierces-staging-tester-typescript.git"
+    "url": "git+https://github.com/PierceLanternStudios/staging-test-prod.git"
   },
-  "homepage": "https://github.com/stainless-sdks-staging/pierces-staging-tester-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/PierceLanternStudios/staging-test-prod/tree/main/packages/mcp-server#readme",
   "server": {
     "type": "node",
     "entry_point": "index.js",

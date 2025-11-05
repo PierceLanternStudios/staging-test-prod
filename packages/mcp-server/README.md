@@ -4,31 +4,16 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
-### Building
+### Direct invocation
 
-Because it's not published yet, clone the repo and build it:
-
-```sh
-git clone git@github.com:stainless-sdks-staging/pierces-staging-tester-typescript.git
-cd pierces-staging-tester-typescript
-./scripts/bootstrap
-./scripts/build
-```
-
-### Running
+You can run the MCP Server directly via `npx`:
 
 ```sh
-# set env vars as needed
 export PETSTORE_API_KEY="My API Key"
-node ./packages/mcp-server/dist/index.js
+npx -y pierces-staging-tester-mcp@latest
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npx -y pierces-staging-tester-mcp`
 
 ### Via MCP Client
-
-[Build the project](#building) as mentioned above.
 
 There is a partial list of existing clients at [modelcontextprotocol.io](https://modelcontextprotocol.io/clients). If you already
 have a client, consult their documentation to install the MCP server.
@@ -39,12 +24,8 @@ For clients with a configuration JSON, it might look something like this:
 {
   "mcpServers": {
     "pierces_staging_tester_api": {
-      "command": "node",
-      "args": [
-        "/path/to/local/pierces-staging-tester-typescript/packages/mcp-server",
-        "--client=claude",
-        "--tools=all"
-      ],
+      "command": "npx",
+      "args": ["-y", "pierces-staging-tester-mcp", "--client=claude", "--tools=all"],
       "env": {
         "PETSTORE_API_KEY": "My API Key"
       }
