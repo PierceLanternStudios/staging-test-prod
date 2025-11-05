@@ -9,8 +9,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 Because it's not published yet, clone the repo and build it:
 
 ```sh
-git clone git@github.com:stainless-sdks-staging/pierces-staging-tester-typescript.git
-cd pierces-staging-tester-typescript
+git clone git@github.com:PierceLanternStudios/staging-test-prod.git
+cd staging-test-prod
 ./scripts/bootstrap
 ./scripts/build
 ```
@@ -40,11 +40,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "pierces_staging_tester_api": {
       "command": "node",
-      "args": [
-        "/path/to/local/pierces-staging-tester-typescript/packages/mcp-server",
-        "--client=claude",
-        "--tools=all"
-      ],
+      "args": ["/path/to/local/staging-test-prod/packages/mcp-server", "--client=claude", "--tools=all"],
       "env": {
         "PETSTORE_API_KEY": "My API Key"
       }
