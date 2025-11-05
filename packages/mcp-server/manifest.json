@@ -1,7 +1,7 @@
 {
   "dxt_version": "0.2",
   "name": "pierces-staging-tester-mcp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The official MCP Server for the Pierces Staging Tester Mc Here API",
   "author": {
     "name": "Pierces Staging Tester Mc Here"
