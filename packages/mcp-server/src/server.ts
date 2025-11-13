@@ -34,7 +34,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'pierces_staging_tester_api',
-      version: '1.0.0',
+      version: '1.0.1',
     },
     { capabilities: { tools: {}, logging: {} } },
   );

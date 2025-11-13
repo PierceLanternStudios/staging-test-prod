@@ -1,7 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { maybeFilter } from 'pierces-staging-tester-mcp/filtering';
-import { Metadata, asTextContentResult } from 'pierces-staging-tester-mcp/tools/types';
+import { isJqError, maybeFilter } from 'pierces-staging-tester-mcp/filtering';
+import { Metadata, asErrorResult, asTextContentResult } from 'pierces-staging-tester-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import PiercesStagingTesterMcHere from 'pierces-staging-tester';
@@ -44,7 +44,14 @@ export const handler = async (
   args: Record<string, unknown> | undefined,
 ) => {
   const { petId, jq_filter, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(jq_filter, await client.pets.retrieve(petId)));
+  try {
+    return asTextContentResult(await maybeFilter(jq_filter, await client.pets.retrieve(petId)));
+  } catch (error) {
+    if (isJqError(error)) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
