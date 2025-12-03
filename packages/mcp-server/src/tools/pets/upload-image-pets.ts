@@ -54,7 +54,7 @@ export const handler = async (
       await maybeFilter(jq_filter, await client.pets.uploadImage(petId, image, body)),
     );
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof PiercesStagingTesterMcHere.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
